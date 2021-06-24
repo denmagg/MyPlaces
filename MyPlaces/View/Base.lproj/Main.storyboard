@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MK8-av-x2s">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--My Places-->
         <scene sceneID="CKQ-Qz-kKD">
             <objects>
-                <tableViewController id="4I5-RW-Dph" sceneMemberID="viewController">
+                <tableViewController id="4I5-RW-Dph" customClass="MainViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F6x-Nz-QxR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                             <outlet property="delegate" destination="4I5-RW-Dph" id="hSA-It-Kb9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="K9d-cG-D9I"/>
+                    <navigationItem key="navigationItem" title="My Places" id="K9d-cG-D9I"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT5-NS-0JS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,6 +42,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ge9-I1-bCP">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4I5-RW-Dph" kind="relationship" relationship="rootViewController" id="uQD-0d-Icr"/>
