@@ -14,6 +14,8 @@
 		921EDFDC267D1EB800D00AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EDFDA267D1EB800D00AAB /* LaunchScreen.storyboard */; };
 		92A14FFB268537C800C40AAE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A14FFA268537C800C40AAE /* MainViewController.swift */; };
 		92A14FFD26854A3B00C40AAE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A14FFC26854A3B00C40AAE /* CustomTableViewCell.swift */; };
+		92F2339F268650F10044326B /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F2339E268650F10044326B /* PlaceModel.swift */; };
+		92F233A126866A790044326B /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F233A026866A790044326B /* NewPlaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		921EDFDD267D1EB800D00AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A14FFA268537C800C40AAE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		92A14FFC26854A3B00C40AAE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		92F2339E268650F10044326B /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		92F233A026866A790044326B /* NewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		921EDFE3267D1FE700D00AAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92F2339E268650F10044326B /* PlaceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 			children = (
 				92A14FFA268537C800C40AAE /* MainViewController.swift */,
 				92A14FFC26854A3B00C40AAE /* CustomTableViewCell.swift */,
+				92F233A026866A790044326B /* NewPlaceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A14FFB268537C800C40AAE /* MainViewController.swift in Sources */,
+				92F233A126866A790044326B /* NewPlaceViewController.swift in Sources */,
 				921EDFD0267D1EB600D00AAB /* AppDelegate.swift in Sources */,
+				92F2339F268650F10044326B /* PlaceModel.swift in Sources */,
 				92A14FFD26854A3B00C40AAE /* CustomTableViewCell.swift in Sources */,
 				921EDFD2267D1EB600D00AAB /* SceneDelegate.swift in Sources */,
 			);

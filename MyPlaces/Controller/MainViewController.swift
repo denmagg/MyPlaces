@@ -10,10 +10,8 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let restaurantNames = ["Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
-    "Индокитай", "X.O", "Балкан Гриль", "Sherlock Holmes",
-    "Speak Easy", "Morris Pub", "Вкусные истории",
-    "Классик", "Love&Life", "Шок", "Бочка"]
+
+    var places = Place.getPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +28,27 @@ class MainViewController: UITableViewController {
 
     //метод возвращает кол-во ячеек в одной секции
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantNames.count
+        return places.count
     }
 
 //    метод возвращает
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        
+        let place = places[indexPath.row]
 
-        cell.nameLabel .text = restaurantNames[indexPath.row]
-        cell.imageOfPlace.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.nameLabel.text = place.name
+        cell.locationLabel.text = place.location
+        cell.typeLabel.text = place.type
+        
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
+        
+        
+        
         cell.imageOfPlace .layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         //обрезать само изображение по обрезке imageview
         cell.imageOfPlace.clipsToBounds = true
@@ -47,47 +57,12 @@ class MainViewController: UITableViewController {
     }
     
     // MARK - Table view delegate
-    //изменение высоты строки
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 85
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 85
+//    }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+   
     /*
     // MARK: - Navigation
 
@@ -97,5 +72,14 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToMainVC(_ segue: UIStoryboardSegue) {
+        guard let svc = segue.source as? NewPlaceViewController else { return }
+        // вызов данного метода произойдет быстрее чем мы закроем VC, таким образом мы успеем сохранить внесенные в поля значения
+        svc.saveNewPlace()
+        places.append(svc.newPlace!)
+        //обновим интерфейс
+        tableView.reloadData()
+    }
 
 }
